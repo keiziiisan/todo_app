@@ -1,0 +1,47 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  min-width: 100%;
+}
+
+.brand-logo{
+  margin-left: 1rem;
+}
+
+.class-modal-torigger-wrapper{
+  width: 100%;
+}
+
+.modal-trigger{
+  border-radius: 50px;
+  padding: 0.1rem 0.6rem;
+  margin: 1rem;
+
+}
+
+.submit-btn{
+  float: right;
+  margin: 2rem;
+}
+
+.todo-wrapper{
+
+}
+
+.collection{
+  margin: 0;
+}
+
+#isDone{
+  vertical-align: middle;
+}
+
+.delete-btn{
+  float: right;
+  vertical-align: middle;
+}
+
+.todo-wrapper label > span.done{
+  text-decoration: line-through;
+}

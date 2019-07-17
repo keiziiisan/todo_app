@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>vue.js</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/stylesheet.css"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper pink accent-3">
+        <a href="#" class="brand-logo">To Do</a>
+        <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">about</a></li>
+          <li><a href="#">contact</a></li>
+        </ul> -->
+      </div>
+    </nav>
+    <div class="container">
+      <div id="app">
+        <div class="todo-wrapper">
+          <p>To Do List</p>
+          <div v-if="todos.length">
+            <p>全タスク数　{{ todos.length }}件 / 残りのタスク数　{{ remaining }}件</p>
+          </div>
+          <div v-else>
+            <p>タスクが登録されておりません。</p>
+          </div>
+
+          <!-- modal trigger -->
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
+              <i class="material-icons">create</i>
+            </a>
+          <!-- Modal Structure -->
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>タスクを登録する</h4>
+              <!-- <p> -->
+                <form @submit.prevent="addItem">
+                  <input type="text" v-model="newItem">
+                  <input class="submit-btn modal-close waves-effect waves-light btn" type="submit" value="登録">
+                </form>
+              <!-- </p> -->
+            </div>
+          </div>
+
+            <div class="collection" v-for="(todo,index) in todos">
+              <a href="#" class="collection-item">
+                <input type="checkbox" v-bind:id="index" v-model="todo.isDone" />
+                <label v-bind:for="index">
+                <span v-bind:class="{done: todo.isDone}">{{ todo.title }}</span>
+              </label>
+                <i class="middle material-icons delete-btn" @click="deleteItem(index)">clear</i>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script src="js/init.js"></script>
+  </body>
+</html>
